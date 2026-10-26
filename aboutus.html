@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07111e">
+    <meta name="description" content="Meet the ChaosLab AI project team and learn about our safe digital-twin approach to chaos engineering.">
+    <title>About us — ChaosLab AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+    <script src="js/main.js" defer></script>
+    <style>
+      .meet-team { padding-block: 4px 34px; }
+      .meet-team-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 19px; }
+      .meet-team-heading h2 { margin: 6px 0 0; font-size: clamp(23px, 3vw, 32px); letter-spacing: -1px; }
+      .meet-team-heading p { max-width: 390px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+      .meet-team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .meet-team-card { min-width: 0; padding: 19px; border: 1px solid rgba(87, 226, 208, .16); border-radius: 13px; background: linear-gradient(145deg, rgba(17, 38, 53, .78), rgba(8, 21, 34, .68)); box-shadow: 0 12px 32px rgba(0, 0, 0, .14); backdrop-filter: blur(14px); transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
+      .meet-team-card:hover { transform: translateY(-4px); border-color: rgba(87, 226, 208, .42); box-shadow: 0 17px 36px rgba(0, 0, 0, .23); }
+      .meet-team-card-top { display: flex; align-items: center; gap: 12px; min-height: 43px; margin-bottom: 17px; }
+      .meet-team-avatar { display: grid; flex: 0 0 42px; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(87, 226, 208, .28); border-radius: 12px; color: var(--cyan); background: linear-gradient(145deg, rgba(87, 226, 208, .15), rgba(87, 226, 208, .04)); font-family: var(--mono); font-size: 12px; }
+      .meet-team-index { color: #7890a1; font-family: var(--mono); font-size: 9px; letter-spacing: .8px; }
+      .meet-team-card h3 { min-height: 46px; margin: 0 0 17px; color: #edf5fa; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+      .meet-team-fields { display: grid; gap: 12px; }
+      .meet-team-detail { display: grid; gap: 6px; }
+      .meet-team-detail-label { color: #8ca2b2; font-family: var(--mono); font-size: 9px; letter-spacing: .65px; }
+      .meet-team-detail-value { min-height: 18px; margin: 0; padding: 10px 11px; border: 1px solid rgba(143, 167, 184, .16); border-radius: 8px; color: #8197a8; background: rgba(4, 14, 24, .58); font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+      @media (max-width: 1000px) { .meet-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 560px) {
+        .meet-team-heading { align-items: start; flex-direction: column; }
+        .meet-team-grid { grid-template-columns: 1fr; }
+        .meet-team-card h3 { min-height: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .meet-team-card { transition: none; }
+        .meet-team-card:hover { transform: none; }
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="site-header"><div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="ChaosLab AI home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>chaoslab<span class="brand-ai">.ai</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Main navigation"><a class="nav-link" href="index.html">Overview</a><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="digital-twin.html">Digital twin</a><a class="nav-link" href="crud.html">Experiments</a><a class="nav-link active" aria-current="page" href="aboutus.html">About us</a><a class="nav-link" href="bot.html">AI assistant</a></nav>
+      <a class="button button-small button-outline header-cta" href="dashboard.html">Explore dashboard <span aria-hidden="true">↗</span></a>
+    </div></header>
+    <main>
+      <section class="page-hero container"><div class="eyebrow"><span class="status-dot"></span> OUR PROJECT / ISM 6225</div><h1>Better resilience<br>is a <span class="text-gradient">team effort.</span></h1><p>We’re exploring how AI agents can help teams think through system failure—safely, thoughtfully, and inside a digital twin.</p></section>
+      <section class="container about-layout">
+        <article class="panel about-story"><div class="eyebrow">WHY CHAOSLAB AI</div><h2>Test the unexpected.<br>Protect the real.</h2><p>Chaos engineering asks an important question: how does a system respond when something goes wrong? ChaosLab AI brings that idea into a safe, simulated environment.</p><p>Its business purpose is to help engineering and reliability teams rehearse failure scenarios, understand availability and recovery trade-offs, and identify resilience improvements before making production changes. For this ISM 6225 project, all experiments remain in a fictional digital twin.</p><div class="callout"><span class="callout-icon">◇</span><p><strong>Safety is the boundary.</strong><br>Experiments shown on this site are illustrative simulations in a digital twin, not live infrastructure tests.</p></div></article>
+      </section>
+      <section class="container meet-team" aria-labelledby="meet-team-title">
+        <div class="meet-team-heading">
+          <div><div class="eyebrow">THE PEOPLE BEHIND THE PROJECT</div><h2 id="meet-team-title">Meet Our Team</h2></div>
+          <p>Project roles and individual contributions are left for each team member to complete.</p>
+        </div>
+        <div class="meet-team-grid" id="meet-team-grid">
+          <article class="meet-team-card" data-member="prathyusha-dasari">
+            <div class="meet-team-card-top"><span class="meet-team-avatar" aria-hidden="true">PD</span><span class="meet-team-index">TEAM MEMBER / 01</span></div>
+            <h3>Prathyusha Dasari</h3>
+            <div class="meet-team-fields">
+              <div class="meet-team-detail"><span class="meet-team-detail-label">PROJECT ROLE</span><p class="meet-team-detail-value">Role details to be added.</p></div>
+              <div class="meet-team-detail"><span class="meet-team-detail-label">INDIVIDUAL CONTRIBUTION</span><p class="meet-team-detail-value">Contribution details to be added.</p></div>
+            </div>
+          </article>
+          <article class="meet-team-card" data-member="ajay-kumar-kukkala">
+            <div class="meet-team-card-top"><span class="meet-team-avatar" aria-hidden="true">AK</span><span class="meet-team-index">TEAM MEMBER / 02</span></div>
+            <h3>Ajay Kumar Kukkala</h3>
+            <div class="meet-team-fields">
+              <div class="meet-team-detail"><span class="meet-team-detail-label">PROJECT ROLE</span><p class="meet-team-detail-value">Role details to be added.</p></div>
+              <div class="meet-team-detail"><span class="meet-team-detail-label">INDIVIDUAL CONTRIBUTION</span><p class="meet-team-detail-value">Contribution details to be added.</p></div>
+            </div>
+          </article>
+          <article class="meet-team-card" data-member="mohammad-sahil">
+            <div class="meet-team-card-top"><span class="meet-team-avatar" aria-hidden="true">MS</span><span class="meet-team-index">TEAM MEMBER / 03</span></div>
+            <h3>Mohammad Sahil</h3>
+            <div class="meet-team-fields">
+              <div class="meet-team-detail"><span class="meet-team-detail-label">PROJECT ROLE</span><p class="meet-team-detail-value">Role details to be added.</p></div>
+              <div class="meet-team-detail"><span class="meet-team-detail-label">INDIVIDUAL CONTRIBUTION</span><p class="meet-team-detail-value">Contribution details to be added.</p></div>
+            </div>
+          </article>
+          <article class="meet-team-card" data-member="kranthi-kumari-kunduru">
+            <div class="meet-team-card-top"><span class="meet-team-avatar" aria-hidden="true">KK</span><span class="meet-team-index">TEAM MEMBER / 04</span></div>
+            <h3>Kranthi Kumari Kunduru</h3>
+            <div class="meet-team-fields">
+              <div class="meet-team-detail"><span class="meet-team-detail-label">PROJECT ROLE</span><p class="meet-team-detail-value">Role details to be added.</p></div>
+              <div class="meet-team-detail"><span class="meet-team-detail-label">INDIVIDUAL CONTRIBUTION</span><p class="meet-team-detail-value">Contribution details to be added.</p></div>
+            </div>
+          </article>
+        </div>
+        <p class="meet-team-status">Role and contribution placeholders will remain until the team provides the details.</p>
+      </section>
+      <section class="container values-row"><div class="eyebrow">WHAT GUIDES US</div><div class="values-grid"><article><span>01</span><h3>Safe by design</h3><p>Simulate first. Never experiment on real production systems.</p></article><article><span>02</span><h3>Learn with intent</h3><p>Use observable outcomes to ask better resilience questions.</p></article><article><span>03</span><h3>Keep it human</h3><p>Use AI as an exploration partner, with people in the loop.</p></article></div></section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>chaoslab<span class="brand-ai">.ai</span></span></a><span class="footer-copy">An ISM 6225 university project · Resilience, simulated.</span><a class="footer-top" href="#top">Back to top ↑</a></div></footer>
+  </body>
+</html>

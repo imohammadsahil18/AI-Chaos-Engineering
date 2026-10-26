@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07111e">
+    <meta name="description" content="Explore simulated uptime, failure incidents, and recovery time from ChaosLab AI digital-twin experiments.">
+    <title>Simulation dashboard — ChaosLab AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top">
+    <header class="site-header"><div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="ChaosLab AI home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>chaoslab<span class="brand-ai">.ai</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Main navigation"><a class="nav-link" href="index.html">Overview</a><a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a><a class="nav-link" href="digital-twin.html">Digital twin</a><a class="nav-link" href="crud.html">Experiments</a><a class="nav-link" href="aboutus.html">About us</a><a class="nav-link" href="bot.html">AI assistant</a></nav>
+      <a class="button button-small button-outline header-cta" href="crud.html">Manage experiments <span aria-hidden="true">↗</span></a>
+    </div></header>
+    <main class="container dashboard-main">
+      <div class="dashboard-heading"><div><div class="eyebrow"><span class="status-dot"></span> DIGITAL TWIN / TELEMETRY</div><h1>Simulation <span class="text-gradient">dashboard</span></h1><p>Explore synthetic resilience signals and run an isolated simulation against your local FastAPI digital twin.</p></div><div class="simulation-chip"><span class="pulse-dot"></span> SIMULATED DATA <span class="chip-divider">·</span> NOT PRODUCTION</div></div>
+      <section class="metric-grid" aria-label="Simulation summary metrics"><article class="metric-card"><div class="metric-top"><span>AVERAGE UPTIME</span><span class="metric-icon">⌁</span></div><div class="metric-value">99.94<span>%</span></div><div class="metric-foot"><span class="trend-up">↑ 0.08%</span><span>across simulated runs</span></div></article><article class="metric-card"><div class="metric-top"><span>FAILURE INCIDENTS</span><span class="metric-icon">△</span></div><div class="metric-value">12</div><div class="metric-foot"><span class="trend-neutral">− 3</span><span>vs. previous period</span></div></article><article class="metric-card"><div class="metric-top"><span>MEAN RECOVERY</span><span class="metric-icon">↻</span></div><div class="metric-value">4.2<span> min</span></div><div class="metric-foot"><span class="trend-up">↓ 12%</span><span>faster than baseline</span></div></article><article class="metric-card"><div class="metric-top"><span>AGENT SCENARIOS</span><span class="metric-icon">✳</span></div><div class="metric-value">48</div><div class="metric-foot"><span class="metric-label">CONTAINED IN DIGITAL TWIN</span></div></article></section>
+      <section class="panel dashboard-simulation" aria-labelledby="dashboard-simulation-title">
+        <div class="dashboard-simulation-heading">
+          <div><span class="eyebrow">BACKEND / SAFE DIGITAL TWIN</span><h2 id="dashboard-simulation-title">Run a hospital server simulation</h2><p>One bounded request to the local API. No production infrastructure is contacted.</p></div>
+          <span class="dashboard-agent-tag">DETERMINISTIC SOFTWARE AGENTS · NOT LLMs</span>
+        </div>
+        <form id="dashboard-simulation-form" class="dashboard-simulation-form">
+          <label class="dashboard-simulation-field"><span>SERVER ROLE</span><select id="dashboard-server-role" name="server_role"><option value="patient_records">Patient records</option><option value="scheduling">Scheduling</option><option value="laboratory">Laboratory</option></select></label>
+          <label class="dashboard-simulation-field"><span>OUTAGE / MIN</span><input id="dashboard-outage-duration" name="outage_duration_minutes" type="number" min="1" max="120" value="10" required></label>
+          <label class="dashboard-simulation-field"><span>REDUNDANCY</span><select id="dashboard-redundancy" name="redundancy_state"><option value="standby_ready">Standby ready</option><option value="standby_unavailable">Standby unavailable</option><option value="none">No standby</option></select></label>
+          <button id="dashboard-run-simulation" class="button button-primary" type="submit">Run simulation <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="dashboard-api-origin"><label for="dashboard-api-origin">LOCAL API ORIGIN</label><input id="dashboard-api-origin" type="url" value="http://127.0.0.1:8000" inputmode="url"><span>POST <code>/api/simulations/hospital-server-failure</code></span></div>
+        <div id="dashboard-simulation-status" class="dashboard-simulation-status" role="status" aria-live="polite"><span class="dashboard-api-dot idle"></span><span id="dashboard-simulation-status-text">Ready · waiting for a simulation request.</span></div>
+        <section id="dashboard-simulation-results" class="dashboard-simulation-results" aria-label="Backend simulation results" hidden>
+          <div class="dashboard-run-summary"><div><span class="eyebrow">ACTUAL API RESPONSE</span><h3 id="dashboard-result-summary">—</h3></div><span id="dashboard-outcome-badge" class="dashboard-outcome-badge">—</span></div>
+          <div class="dashboard-result-metrics">
+            <article><span>SIMULATED SERVER STATUS</span><strong id="dashboard-server-status">—</strong></article>
+            <article><span>FAILURE DETECTION</span><strong id="dashboard-detection-time">—</strong></article>
+            <article><span>RECOVERY ESTIMATE</span><strong id="dashboard-recovery-time">—</strong></article>
+            <article><span>SYSTEM AVAILABILITY</span><strong id="dashboard-availability">—</strong></article>
+          </div>
+          <div class="dashboard-agent-timeline-heading"><div><span class="eyebrow">TIMESTAMPED AGENT DECISIONS</span><h3>Simulation timeline</h3></div><span>BACKEND GENERATED</span></div>
+          <ol id="dashboard-agent-timeline" class="dashboard-agent-timeline"><li class="dashboard-timeline-empty">Agent timeline will appear after the backend responds.</li></ol>
+          <details class="dashboard-raw-response"><summary>View raw API response</summary><pre id="dashboard-raw-response-json">No backend response received.</pre></details>
+        </section>
+      </section>
+      <div class="chart-toolbar"><div><h2>Resilience signals</h2><p>Illustrative telemetry from simulated experiments.</p></div><div class="range-switch" role="group" aria-label="Select chart time range"><button type="button" class="range-button active" data-range="7" aria-pressed="true">7 days</button><button type="button" class="range-button" data-range="30" aria-pressed="false">30 days</button></div></div>
+      <section class="chart-grid" aria-label="Interactive simulation charts">
+        <article class="chart-card chart-card-wide"><div class="chart-title"><div><span class="chart-kicker">AVAILABILITY</span><h3>System uptime</h3></div><span class="chart-unit">%</span></div><div class="chart-wrap"><canvas id="uptime-chart" role="img" aria-label="Line chart showing simulated system uptime across the selected time range"></canvas></div><div class="chart-caption"><span><i class="legend-dot cyan"></i> Simulated uptime</span><span>Target: 99.9%</span></div></article>
+        <article class="chart-card"><div class="chart-title"><div><span class="chart-kicker">FAULT INJECTION</span><h3>Failure incidents</h3></div><span class="chart-unit">COUNT</span></div><div class="chart-wrap"><canvas id="incidents-chart" role="img" aria-label="Bar chart showing simulated failure incidents across the selected time range"></canvas></div><div class="chart-caption"><span><i class="legend-dot violet"></i> Contained events</span><span>All simulated</span></div></article>
+        <article class="chart-card"><div class="chart-title"><div><span class="chart-kicker">RECOVERY</span><h3>Recovery time</h3></div><span class="chart-unit">MIN</span></div><div class="chart-wrap"><canvas id="recovery-chart" role="img" aria-label="Line chart showing simulated recovery times across the selected time range"></canvas></div><div class="chart-caption"><span><i class="legend-dot green"></i> Mean time to recover</span><span>Lower is better</span></div></article>
+      </section>
+      <div class="dashboard-footnote"><span class="note-icon">i</span><p><strong>Simulation notice:</strong> All metrics on this dashboard are sample data for an academic demonstration. They do not represent live systems or real production incidents.</p><a href="crud.html">View experiments <span>→</span></a></div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>chaoslab<span class="brand-ai">.ai</span></span></a><span class="footer-copy">An ISM 6225 university project · Resilience, simulated.</span><a class="footer-top" href="#top">Back to top ↑</a></div></footer>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07111e">
+    <meta name="description" content="Create and manage illustrative chaos experiments in the ChaosLab AI digital twin.">
+    <title>Experiments — ChaosLab AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top">
+    <header class="site-header"><div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="ChaosLab AI home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>chaoslab<span class="brand-ai">.ai</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Main navigation"><a class="nav-link" href="index.html">Overview</a><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="digital-twin.html">Digital twin</a><a class="nav-link active" aria-current="page" href="crud.html">Experiments</a><a class="nav-link" href="aboutus.html">About us</a><a class="nav-link" href="bot.html">AI assistant</a></nav>
+      <a class="button button-small button-outline header-cta" href="dashboard.html">View dashboard <span aria-hidden="true">↗</span></a>
+    </div></header>
+    <main class="container page-main">
+      <section class="page-hero page-hero-compact"><div class="eyebrow"><span class="status-dot"></span> DIGITAL TWIN / SCENARIO LAB</div><h1>Experiment <span class="text-gradient">library</span></h1><p>Design and manage contained scenarios. Your experiments are stored in this browser only.</p></section>
+      <div class="simulation-banner"><span class="banner-icon">◇</span><p><strong>Safe simulation only.</strong> These experiment records describe digital-twin scenarios. Nothing here connects to or affects production infrastructure.</p><span class="simulation-chip">ISOLATED</span></div>
+      <section class="experiment-layout">
+        <article class="panel experiment-form-panel"><div class="panel-heading"><div><div class="eyebrow">SCENARIO DESIGN</div><h2 id="form-title">Create an experiment</h2></div><span class="form-step">01 / 01</span></div>
+          <form id="experiment-form">
+            <input type="hidden" id="experiment-id">
+            <label class="form-label" for="experiment-name">Experiment name <span>*</span></label><input class="form-control" id="experiment-name" name="name" type="text" maxlength="80" placeholder="e.g. Cache node interruption" required>
+            <label class="form-label" for="experiment-target">Digital-twin component <span>*</span></label><input class="form-control" id="experiment-target" name="target" type="text" maxlength="80" placeholder="e.g. Simulated cache cluster" required>
+            <label class="form-label" for="experiment-failure">Scenario type</label><select class="form-control" id="experiment-failure" name="failure"><option>Service interruption</option><option>Network latency</option><option>Resource exhaustion</option><option>Dependency failure</option><option>Traffic spike</option><option>Other simulated fault</option></select>
+            <div class="form-row"><div><label class="form-label" for="experiment-risk">Simulation intensity</label><select class="form-control" id="experiment-risk" name="risk"><option>Low</option><option selected>Moderate</option><option>High</option></select></div><div><label class="form-label" for="experiment-status">Status</label><select class="form-control" id="experiment-status" name="status"><option>Draft</option><option>Ready</option><option>Completed</option></select></div></div>
+            <div class="form-actions"><button class="button button-primary" type="submit" id="submit-experiment">Save experiment <span aria-hidden="true">→</span></button><button class="button button-quiet hidden" type="button" id="cancel-edit">Cancel</button></div>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+        <section class="panel experiment-list-panel" aria-labelledby="experiments-title"><div class="panel-heading"><div><div class="eyebrow">LOCAL WORKSPACE</div><h2 id="experiments-title">Your experiments <span id="experiment-count" class="count-badge">0</span></h2></div><span class="storage-label"><i></i> SAVED LOCALLY</span></div>
+          <div class="table-scroll"><table class="experiment-table"><thead><tr><th scope="col">EXPERIMENT</th><th scope="col">SCENARIO</th><th scope="col">INTENSITY</th><th scope="col">STATUS</th><th scope="col" aria-label="Actions"></th></tr></thead><tbody id="experiment-list"></tbody></table></div>
+          <div id="empty-state" class="empty-state"><div class="empty-icon">⌘</div><h3>No experiments yet</h3><p>Create your first simulated scenario using the form.</p></div>
+          <p id="list-message" class="sr-only" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>chaoslab<span class="brand-ai">.ai</span></span></a><span class="footer-copy">An ISM 6225 university project · Resilience, simulated.</span><a class="footer-top" href="#top">Back to top ↑</a></div></footer>
+  </body>
+</html>
